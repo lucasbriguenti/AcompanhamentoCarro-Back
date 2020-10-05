@@ -1,0 +1,5 @@
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.deps.json
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.csprojAssemblyReference.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.AssemblyInfoInputs.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.AssemblyInfo.cs
