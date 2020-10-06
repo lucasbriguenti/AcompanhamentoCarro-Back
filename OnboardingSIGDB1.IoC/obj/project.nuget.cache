@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nVdTqaOmos/QCYly6Ad6q+SBr8iLTaY7agUgyY1fRvFLoerexH1ROFtmMJc+ATdc5dXY6F9sP5pFU+A6FPXQ2w==",
+  "dgSpecHash": "t8uHIGJwL8rcSOYcDn2vlOPpo4r6L1XkuUqyYnCpFHasvjRQEO2cNQvA3R3WCyJMd1pDGqHIHLn8dEs61xuKHw==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.2.0\\microsoft.extensions.dependencyinjection.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],

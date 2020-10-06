@@ -1,0 +1,9 @@
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnboardingSIGDB1.Data.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnboardingSIGDB1.Domain.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnboardingSIGDB1.IoC.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.csprojAssemblyReference.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.AssemblyInfoInputs.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.AssemblyInfo.cs
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.RazorAssemblyInfo.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.RazorAssemblyInfo.cs
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.RazorTargetAssemblyInfo.cache

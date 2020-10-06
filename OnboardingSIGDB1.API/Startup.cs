@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using OnboardingSIGDB1.API.Models;
+using OnboardingSIGDB1.Domain.Dto;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace OnboardingSIGDB1.API
 {
@@ -26,6 +22,13 @@ namespace OnboardingSIGDB1.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<EmpresaDto, Empresa>();
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
