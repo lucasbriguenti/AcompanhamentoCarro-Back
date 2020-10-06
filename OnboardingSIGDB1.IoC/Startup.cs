@@ -2,9 +2,9 @@
 
 namespace OnboardingSIGDB1.IoC
 {
-    public class Startup
+    public static class Startup
     {
-        public void MapeamentoGenerico(IServiceCollection services)
+        public static void MapeamentoGenerico(IServiceCollection services)
         {
             //services.AddScoped<>
         }

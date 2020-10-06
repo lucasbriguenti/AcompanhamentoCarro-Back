@@ -7,12 +7,17 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Mappings\" />
     <Folder Include="Migrations\" />
     <Folder Include="Repositorios\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnboardingSIGDB1.Domain\OnboardingSIGDB1.Domain.csproj" />
   </ItemGroup>
 
 </Project>

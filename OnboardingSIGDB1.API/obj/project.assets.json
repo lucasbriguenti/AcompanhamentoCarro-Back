@@ -4465,7 +4465,9 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AutoMapper": "10.0.0",
-          "Microsoft.EntityFrameworkCore": "2.2.0"
+          "Microsoft.EntityFrameworkCore": "2.2.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0",
+          "OnboardingSIGDB1.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/OnboardingSIGDB1.Data.dll": {}
@@ -4478,27 +4480,13 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "AutoMapper": "10.0.0",
-          "OnboardingSIGDB1.Data": "1.0.0"
+          "AutoMapper": "10.0.0"
         },
         "compile": {
           "bin/placeholder/OnboardingSIGDB1.Domain.dll": {}
         },
         "runtime": {
           "bin/placeholder/OnboardingSIGDB1.Domain.dll": {}
-        }
-      },
-      "OnboardingSIGDB1.IoC/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
-        },
-        "compile": {
-          "bin/placeholder/OnboardingSIGDB1.IoC.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/OnboardingSIGDB1.IoC.dll": {}
         }
       }
     }
@@ -12197,11 +12185,6 @@
       "type": "project",
       "path": "../OnboardingSIGDB1.Domain/OnboardingSIGDB1.Domain.csproj",
       "msbuildProject": "../OnboardingSIGDB1.Domain/OnboardingSIGDB1.Domain.csproj"
-    },
-    "OnboardingSIGDB1.IoC/1.0.0": {
-      "type": "project",
-      "path": "../OnboardingSIGDB1.IoC/OnboardingSIGDB1.IoC.csproj",
-      "msbuildProject": "../OnboardingSIGDB1.IoC/OnboardingSIGDB1.IoC.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12210,9 +12193,10 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 1.1.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
-      "OnboardingSIGDB1.Domain >= 1.0.0",
-      "OnboardingSIGDB1.IoC >= 1.0.0"
+      "OnboardingSIGDB1.Data >= 1.0.0",
+      "OnboardingSIGDB1.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12245,11 +12229,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
+            "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
+              "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
+            },
             "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
               "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj"
-            },
-            "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj": {
-              "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj"
             }
           }
         }
@@ -12279,6 +12263,10 @@
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[2.2.0, )"
           },
