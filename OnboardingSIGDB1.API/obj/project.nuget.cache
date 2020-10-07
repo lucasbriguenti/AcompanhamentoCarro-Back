@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "mraxdXPhZrO9yHeS3Khb7ZgVZiWk+tZbeE1oXYV0zYs1TN8UplhZqdNLXCk9thOYMHvbl0o7nCgMuQY4PnyGYg==",
+  "dgSpecHash": "hWaTUeochsrkunK8rG36KQV3M26gH/4oIZvivqnpAfAViF4v0jNPHcP18lrJ78jl1CuiMb1FlXKH9kDNTIRlgA==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\1.1.0\\automapper.extensions.microsoft.dependencyinjection.1.1.0.nupkg.sha512",
+    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\extensions.fluentvalidation.br\\1.0.1\\extensions.fluentvalidation.br.1.0.1.nupkg.sha512",
+    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\fluentvalidation\\9.2.2\\fluentvalidation.9.2.2.nupkg.sha512",
+    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.2.0\\fluentvalidation.aspnetcore.9.2.0.nupkg.sha512",
+    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.2.0\\fluentvalidation.dependencyinjectionextensions.9.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

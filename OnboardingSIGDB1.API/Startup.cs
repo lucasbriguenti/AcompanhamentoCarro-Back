@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Models;
+using System;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace OnboardingSIGDB1.API
@@ -24,10 +26,14 @@ namespace OnboardingSIGDB1.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation();
+
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<EmpresaDto, Empresa>();
+                cfg.CreateMap<EmpresaDto, Empresa>()
+                .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
             });
 
             IMapper mapper = config.CreateMapper();

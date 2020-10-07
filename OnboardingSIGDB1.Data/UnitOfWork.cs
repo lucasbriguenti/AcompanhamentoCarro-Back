@@ -1,5 +1,6 @@
 ﻿using OnboardingSIGDB1.Domain.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.Data
 {
@@ -23,9 +24,9 @@ namespace OnboardingSIGDB1.Data
             }
         }
 
-        public void Commit()
+        public async Task<int> Commit()
         {
-            _contexto.SaveChanges();
+            return await _contexto.SaveChangesAsync();
         }
 
         private bool disposed = false;

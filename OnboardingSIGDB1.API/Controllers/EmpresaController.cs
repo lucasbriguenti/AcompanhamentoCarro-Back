@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Models;
+using OnboardingSIGDB1.Domain.Services.Validators;
 using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.API.Controllers
@@ -13,25 +14,28 @@ namespace OnboardingSIGDB1.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
+        private readonly EmpresaValidator validator;
         public EmpresaController(IMapper mapper, IUnitOfWork uow)
         {
             _mapper = mapper;
             _uow = uow;
+            validator = new EmpresaValidator();
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] EmpresaDto dto)
+        public async Task<IActionResult> Post([FromBody] EmpresaDto dto)
         {
-            var empresa = _mapper.Map<Empresa>(dto);
-            try
+            var result = validator.Validate(dto);
+            if(result.IsValid)
             {
-                _uow.EmpresaRepositorio.Adicionar(empresa);
-                _uow.Commit();
+                var empresa = _mapper.Map<Empresa>(dto);
+                _uow.EmpresaRepositorio.AdicionarAsync(empresa);
+                await _uow.Commit();
                 return Ok();
             }
-            catch
+            else
             {
-                return NotFound();
+                return NotFound(string.Join(',', result.Errors));
             }
         }
 
@@ -41,34 +45,40 @@ namespace OnboardingSIGDB1.API.Controllers
             return Ok(await _uow.EmpresaRepositorio.GetAsync());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet]
+        public IActionResult Get()
         {
-            return Ok(_uow.EmpresaRepositorio.Get(x => x.Id == id));
+            return Ok(_uow.EmpresaRepositorio.GetTudo());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id));
         }
 
         [HttpPut]
-        public IActionResult Put(int id, [FromBody] EmpresaDto dto)
+        public async Task<IActionResult> Put(int id, [FromBody] EmpresaDto dto)
         {
-            var empresa = _uow.EmpresaRepositorio.Get(x => x.Id == id);
+            var empresa = await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id);
             if (empresa == null)
                 return NotFound();
 
             empresa = _mapper.Map<Empresa>(dto);
             _uow.EmpresaRepositorio.Atualizar(empresa);
-            _uow.Commit();
+            await _uow.Commit();
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var empresa = _uow.EmpresaRepositorio.Get(x => x.Id == id);
+            var empresa = await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id);
             if (empresa == null)
                 return NotFound();
 
             _uow.EmpresaRepositorio.Deletar(empresa);
-            _uow.Commit();
+            await _uow.Commit();
             return Ok();
         }
     }

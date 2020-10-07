@@ -13,6 +13,7 @@ namespace OnboardingSIGDB1.Data
         T Get(Expression<Func<T, bool>> predicate);
         Task<T> GetAsync(Expression<Func<T, bool>> predicate = null);
         void Adicionar(T entity);
+        void AdicionarAsync(T entity);
         void Atualizar(T entity);
         void Deletar(T entity);
         int Contar();

@@ -45,6 +45,14 @@
               "target": "Package",
               "version": "[10.0.0, )"
             },
+            "Extensions.FluentValidation.Br": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

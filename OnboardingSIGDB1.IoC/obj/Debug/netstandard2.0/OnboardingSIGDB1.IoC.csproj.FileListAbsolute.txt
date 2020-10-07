@@ -6,3 +6,4 @@ C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\Onboardin
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.csproj.CoreCompileInputs.cache
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.dll
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.csprojAssemblyReference.cache

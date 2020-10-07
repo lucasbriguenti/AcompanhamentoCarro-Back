@@ -45,6 +45,12 @@ namespace OnboardingSIGDB1.Data
         {
             DbSet.Add(entity);
         }
+
+        public async void AdicionarAsync(T entity)
+        {
+            await DbSet.AddAsync(entity);
+        }
+
         public void Atualizar(T entity)
         {
             DbSet.Update(entity);
@@ -57,7 +63,5 @@ namespace OnboardingSIGDB1.Data
         {
             return DbSet.Count();
         }
-
-
     }
 }
