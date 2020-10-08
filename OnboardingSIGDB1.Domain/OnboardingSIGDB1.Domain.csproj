@@ -9,7 +9,6 @@
     <Folder Include="AutoMapper\" />
     <Folder Include="Base\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Utils\" />
     <Folder Include="Notifications\" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Models;
 using OnboardingSIGDB1.Domain.Services.Validators;
+using OnboardingSIGDB1.Domain.Utils;
 using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.API.Controllers
@@ -39,6 +40,15 @@ namespace OnboardingSIGDB1.API.Controllers
             }
         }
 
+        [HttpGet("pesquisar")]
+        public async Task<IActionResult> GetAsync([FromQuery] EmpresaFiltro filtro)
+        {
+            return Ok(await _uow.EmpresaRepositorio.GetTudoAsync(x => 
+            (!string.IsNullOrEmpty(filtro.Nome) && x.Nome.Contains(filtro.Nome)) || 
+            (!string.IsNullOrEmpty(filtro.Cnpj) && x.Cnpj.Contains(filtro.Cnpj.LimpaMascaraCnpj())) ||
+            (filtro.DataFimFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao <= filtro.DataFimFundacao) ||
+            (filtro.DataInicioFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao >= filtro.DataInicioFundacao)));
+        }
         [HttpGet("async")]
         public async Task<IActionResult> GetAsync()
         {
