@@ -45,20 +45,14 @@ namespace OnboardingSIGDB1.API.Controllers
         {
             return Ok(await _uow.EmpresaRepositorio.GetTudoAsync(x => 
             (!string.IsNullOrEmpty(filtro.Nome) && x.Nome.Contains(filtro.Nome)) || 
-            (!string.IsNullOrEmpty(filtro.Cnpj) && x.Cnpj.Contains(filtro.Cnpj.LimpaMascaraCnpj())) ||
+            (!string.IsNullOrEmpty(filtro.Cnpj) && x.Cnpj.Equals(filtro.Cnpj.LimpaMascaraCnpjCpf())) ||
             (filtro.DataFimFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao <= filtro.DataFimFundacao) ||
             (filtro.DataInicioFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao >= filtro.DataInicioFundacao)));
         }
-        [HttpGet("async")]
-        public async Task<IActionResult> GetAsync()
-        {
-            return Ok(await _uow.EmpresaRepositorio.GetAsync());
-        }
-
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_uow.EmpresaRepositorio.GetTudo());
+            return Ok(await _uow.EmpresaRepositorio.GetTudoAsync());
         }
 
         [HttpGet("{id}")]

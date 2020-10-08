@@ -8,6 +8,8 @@ namespace OnboardingSIGDB1.Data
     {
         private readonly DataContext _contexto;
         private Repositorio<Empresa> _empresaRepositorio = null;
+        private Repositorio<Funcionario> _funcionarioRepositorio = null;
+        private Repositorio<Cargo> _cargoRepositorio = null;
         public UnitOfWork(DataContext contexto)
         {
             _contexto = contexto;
@@ -21,6 +23,29 @@ namespace OnboardingSIGDB1.Data
                     _empresaRepositorio = new Repositorio<Empresa>(_contexto);
                 }
                 return _empresaRepositorio;
+            }
+        }
+
+        public IRepositorio<Funcionario> FuncionarioRepositorio
+        {
+            get
+            {
+                if(_funcionarioRepositorio == null)
+                {
+                    _funcionarioRepositorio = new Repositorio<Funcionario>(_contexto);
+                }
+                return _funcionarioRepositorio;
+            }
+        }
+        public IRepositorio<Cargo> CargoRepositorio
+        {
+            get
+            {
+                if(_cargoRepositorio == null)
+                {
+                    _cargoRepositorio = new Repositorio<Cargo>(_contexto);
+                }
+                return _cargoRepositorio;
             }
         }
 

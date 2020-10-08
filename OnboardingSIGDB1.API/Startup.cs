@@ -34,6 +34,11 @@ namespace OnboardingSIGDB1.API
             {
                 cfg.CreateMap<EmpresaDto, Empresa>()
                 .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
+
+                cfg.CreateMap<FuncionarioDto, Funcionario>()
+                .ForMember(x => x.DataContratacao, opt => opt.MapFrom(x => x.DataContratacao ?? null));
+
+                cfg.CreateMap<CargoDto, Cargo>();
             });
 
             IMapper mapper = config.CreateMapper();

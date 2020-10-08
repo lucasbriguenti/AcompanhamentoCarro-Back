@@ -1,8 +1,8 @@
 ﻿namespace OnboardingSIGDB1.Domain.Utils
 {
-    public static class EmpresaExtensoes
+    public static class CpfCnpjExtensions
     {
-        public static string LimpaMascaraCnpj(this string cnpj)
+        public static string LimpaMascaraCnpjCpf(this string cnpj)
         {
             return cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
         }

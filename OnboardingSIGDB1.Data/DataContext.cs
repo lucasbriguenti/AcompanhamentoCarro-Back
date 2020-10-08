@@ -10,6 +10,7 @@ namespace OnboardingSIGDB1.Data
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         public DbSet<Empresa> Empresas { get; set; }
-
-   }
+        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Cargo> Cargos { get; set; }
+    }
 }
