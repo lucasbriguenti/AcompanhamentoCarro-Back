@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using OnboardingSIGDB1.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,10 @@ namespace OnboardingSIGDB1.Domain.Notifications
 		{
 			_notifications.AddRange(notifications);
 		}
-
+		public void AddNotifications(Entity entity)
+        {
+			AddNotifications(entity.ValidationResult);
+		}
 		public void AddNotifications(IList<Notification> notifications)
 		{
 			_notifications.AddRange(notifications);

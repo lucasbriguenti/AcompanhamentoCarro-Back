@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Models;
+using OnboardingSIGDB1.Domain.Notifications;
 using OnboardingSIGDB1.Domain.Services.Validators;
 
 namespace OnboardingSIGDB1.API.Controllers
@@ -15,29 +16,31 @@ namespace OnboardingSIGDB1.API.Controllers
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
         private readonly CargoValidator validator;
+        private readonly NotificationContext _notification;
 
-        public CargoController(IMapper mapper, IUnitOfWork uow)
+        public CargoController(IMapper mapper, IUnitOfWork uow, NotificationContext notification)
         {
             _mapper = mapper;
             _uow = uow;
+            _notification = notification;
             validator = new CargoValidator();
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CargoDto dto)
         {
-            var result = validator.Validate(dto);
-            if(result.IsValid)
+            var cargo = _mapper.Map<Cargo>(dto);
+            cargo.Validate(cargo, validator);
+            if(cargo.Invalid)
             {
-                var cargo = _mapper.Map<Cargo>(dto);
-                _uow.CargoRepositorio.Adicionar(cargo);
-                await _uow.Commit();
-                return Ok(cargo);
+                _notification.AddNotifications(cargo);
+                return NotFound();
             }
-            else
-            {
-                return NotFound(string.Join(",", result.Errors));
-            }
+
+            _uow.CargoRepositorio.Adicionar(cargo);
+            await _uow.Commit();
+            return Ok(cargo);
+
         }
 
         [HttpGet]
@@ -55,10 +58,19 @@ namespace OnboardingSIGDB1.API.Controllers
         public async Task<IActionResult> Put(int id, [FromBody] CargoDto dto)
         {
             var cargo = await _uow.CargoRepositorio.GetAsync(x => x.Id == id);
-            if (cargo == null)
+            if (cargo == null || id != dto.Id)
+            {
+                _notification.AddNotification("0", "Cargo não cadastrado");
                 return NotFound();
-
+            }
             cargo = _mapper.Map<Cargo>(dto);
+            cargo.Validate(cargo, validator);
+            if (cargo.Invalid)
+            {
+                _notification.AddNotifications(cargo);
+                return NotFound();
+            }
+            
             _uow.CargoRepositorio.Atualizar(cargo);
             await _uow.Commit();
             return Ok(cargo);
@@ -69,8 +81,11 @@ namespace OnboardingSIGDB1.API.Controllers
         {
             var cargo = await _uow.CargoRepositorio.GetAsync(x => x.Id == id);
             if (cargo == null)
+            {
+                _notification.AddNotification("0", "Cargo não encontrado");
                 return NotFound();
-
+            }
+                
             _uow.CargoRepositorio.Deletar(cargo);
             await _uow.Commit();
             return Ok(cargo);

@@ -8,6 +8,8 @@ using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Models;
 using OnboardingSIGDB1.Domain.Services.Validators;
 using OnboardingSIGDB1.Domain.Utils;
+using OnboardingSIGDB1.Domain.Notifications;
+
 namespace OnboardingSIGDB1.API.Controllers
 {
     [Route("api/[controller]")]
@@ -18,11 +20,13 @@ namespace OnboardingSIGDB1.API.Controllers
         private readonly IUnitOfWork _uow;
         private readonly FuncionarioValidator validator;
         private readonly FuncionarioCargoValidator validatorFuncCargo;
+        private readonly NotificationContext _notification;
 
-        public FuncionarioController(IMapper mapper, IUnitOfWork uow)
+        public FuncionarioController(IMapper mapper, IUnitOfWork uow, NotificationContext notification)
         {
             _mapper = mapper;
             _uow = uow;
+            _notification = notification;
             validator = new FuncionarioValidator();
             validatorFuncCargo = new FuncionarioCargoValidator();
         }
@@ -31,19 +35,24 @@ namespace OnboardingSIGDB1.API.Controllers
         public async Task<IActionResult> Post([FromBody] FuncionarioDto dto)
         {
             var funcionarioRegistrado = _uow.FuncionarioRepositorio.Get(x => x.Cpf.Equals(dto.Cpf.LimpaMascaraCnpjCpf()));
-            var result = validator.Validate(dto);
-            if(result.IsValid && funcionarioRegistrado == null)
+            if (funcionarioRegistrado != null)
             {
-                var funcionario = _mapper.Map<Funcionario>(dto);
-                _uow.FuncionarioRepositorio.Adicionar(funcionario);
-                await _uow.Commit();
-                return Ok();
+                _notification.AddNotification("0", $"Funcionário {dto.Cpf} já cadastrado");
+                return NotFound();
             }
-            else
+            var funcionario = _mapper.Map<Funcionario>(dto);
+            funcionario.Validate(funcionario, validator);
+            if (funcionario.Invalid)
             {
-                return NotFound(string.Join(',', result.Errors));
+                _notification.AddNotifications(funcionario.ValidationResult);
+                return NotFound();
             }
+            _uow.FuncionarioRepositorio.Adicionar(funcionario);
+            await _uow.Commit();
+            return Ok(funcionario);
         }
+
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -62,8 +71,8 @@ namespace OnboardingSIGDB1.API.Controllers
         {
             if (filtro.IsNull)
                 return await Get();
-           
-            return Ok(await _uow.FuncionarioRepositorio.GetTudoAsync(x => 
+
+            return Ok(await _uow.FuncionarioRepositorio.GetTudoAsync(x =>
             (string.IsNullOrEmpty(filtro.Nome) || x.Nome.Contains(filtro.Nome)) &&
             (string.IsNullOrEmpty(filtro.Cpf) || x.Cpf.Equals(filtro.Cpf.LimpaMascaraCnpjCpf())) &&
             (!filtro.DataInicioContratacao.HasValue || x.DataContratacao >= filtro.DataInicioContratacao.Value) &&
@@ -75,9 +84,19 @@ namespace OnboardingSIGDB1.API.Controllers
         {
             var funcionario = await _uow.FuncionarioRepositorio.GetAsync(x => x.Id == id);
             if (funcionario == null)
+            {
+                _notification.AddNotification("0", "Funcionário não cadastrado");
                 return NotFound();
-
+            }
             funcionario = _mapper.Map<Funcionario>(dto);
+            funcionario.Validate(funcionario, validator);
+
+            if (funcionario.Invalid)
+            {
+                _notification.AddNotifications(funcionario);
+                return NotFound();
+            }
+
             _uow.FuncionarioRepositorio.Atualizar(funcionario);
             await _uow.Commit();
             return Ok(funcionario);
@@ -88,7 +107,10 @@ namespace OnboardingSIGDB1.API.Controllers
         {
             var funcionario = await _uow.FuncionarioRepositorio.GetAsync(x => x.Id == id);
             if (funcionario == null)
+            {
+                _notification.AddNotification("0", "Funcionário não cadastrado");
                 return NotFound();
+            }
 
             _uow.FuncionarioRepositorio.Deletar(funcionario);
             await _uow.Commit();
@@ -114,28 +136,36 @@ namespace OnboardingSIGDB1.API.Controllers
                 return Ok(funcionario);
             }
             else
+            {
+                _notification.AddNotification("Vinculação", "Erro na vinculação a empresa");
                 return NotFound();
+            }
+                
         }
         [HttpPut("vincularcargo")]
         public async Task<IActionResult> VincularCargo([FromQuery] VincularFuncionarioCargoDto dto)
         {
-            var result = validatorFuncCargo.Validate(dto);
-            if(result.IsValid)
+            var funcionario = _uow.FuncionarioRepositorio.Get(x => x.Id == dto.FuncionarioId);
+            var cargo = _uow.CargoRepositorio.Get(x => x.Id == dto.CargoId);
+            if (cargo != null && funcionario != null && !funcionario.FuncionarioCargos.Any(x => x.CargoId == cargo.Id) && funcionario.Empresa != null)
             {
-                var funcionario = _uow.FuncionarioRepositorio.Get(x => x.Id == dto.FuncionarioId);
-                var cargo = _uow.CargoRepositorio.Get(x => x.Id == dto.CargoId);
-                if (cargo != null && funcionario != null && !funcionario.FuncionarioCargos.Any(x => x.CargoId == cargo.Id) && funcionario.Empresa != null)
+                var funcionarioCargo = _mapper.Map<FuncionarioCargo>(dto);
+                funcionarioCargo.Validate(funcionarioCargo, validatorFuncCargo);
+                if(funcionarioCargo.Invalid)
                 {
-                    var funcionarioCargo = _mapper.Map<FuncionarioCargo>(dto);
-                    _uow.FuncionarioCargoRepositorio.Adicionar(funcionarioCargo);
-                    await _uow.Commit();
-                    return Ok(funcionarioCargo);
-                }
-                else
+                    _notification.AddNotifications(funcionarioCargo);
                     return NotFound();
+                }
 
+                _uow.FuncionarioCargoRepositorio.Adicionar(funcionarioCargo);
+                await _uow.Commit();
+                return Ok(funcionarioCargo);
             }
-            return NotFound();
+            else
+            {
+                _notification.AddNotification("0", "Impossivel vincular cargo");
+                return NotFound();
+            }
         }
     }
 }
