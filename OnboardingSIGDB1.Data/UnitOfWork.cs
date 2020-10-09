@@ -10,6 +10,7 @@ namespace OnboardingSIGDB1.Data
         private Repositorio<Empresa> _empresaRepositorio = null;
         private Repositorio<Funcionario> _funcionarioRepositorio = null;
         private Repositorio<Cargo> _cargoRepositorio = null;
+        private Repositorio<FuncionarioCargo> _funcionarioCargoRepositorio = null;
         public UnitOfWork(DataContext contexto)
         {
             _contexto = contexto;
@@ -48,7 +49,17 @@ namespace OnboardingSIGDB1.Data
                 return _cargoRepositorio;
             }
         }
-
+        public IRepositorio<FuncionarioCargo> FuncionarioCargoRepositorio
+        {
+            get
+            {
+                if(_funcionarioCargoRepositorio == null)
+                {
+                    _funcionarioCargoRepositorio = new Repositorio<FuncionarioCargo>(_contexto);
+                }
+                return _funcionarioCargoRepositorio;
+            }
+        }
         public async Task<int> Commit()
         {
             return await _contexto.SaveChangesAsync();

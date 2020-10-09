@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnboardingSIGDB1.Data;
 
 namespace OnboardingSIGDB1.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201008162245_addRelacaoFuncionarioEmpresa")]
+    partial class addRelacaoFuncionarioEmpresa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,39 +78,11 @@ namespace OnboardingSIGDB1.API.Migrations
                     b.ToTable("Funcionarios");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.FuncionarioCargo", b =>
-                {
-                    b.Property<int>("CargoId");
-
-                    b.Property<int>("FuncionarioId");
-
-                    b.Property<DateTime>("DataVinculo");
-
-                    b.HasKey("CargoId", "FuncionarioId");
-
-                    b.HasIndex("FuncionarioId");
-
-                    b.ToTable("FuncionarioCargos");
-                });
-
             modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.Funcionario", b =>
                 {
                     b.HasOne("OnboardingSIGDB1.Domain.Models.Empresa", "Empresa")
                         .WithMany("Funcionarios")
                         .HasForeignKey("EmpresaId");
-                });
-
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.FuncionarioCargo", b =>
-                {
-                    b.HasOne("OnboardingSIGDB1.Domain.Models.Cargo", "Cargo")
-                        .WithMany("FuncionarioCargos")
-                        .HasForeignKey("CargoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("OnboardingSIGDB1.Domain.Models.Funcionario", "Funcionario")
-                        .WithMany("FuncionarioCargos")
-                        .HasForeignKey("FuncionarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

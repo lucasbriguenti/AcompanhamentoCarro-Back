@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,26 +21,26 @@ namespace OnboardingSIGDB1.Data
         {
             if (predicate != null)
             {
-                return DbSet.Where(predicate);
+                return Query().Where(predicate);
             }
-            return DbSet.AsEnumerable();
+            return Query().AsEnumerable();
         }
         public T Get(Expression<Func<T, bool>> predicate)
         {
-            return DbSet.FirstOrDefault(predicate);
+            return Query().FirstOrDefault(predicate);
         }
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> predicate = null)
         {
-            return await DbSet.FirstOrDefaultAsync(predicate);
+            return await Query().FirstOrDefaultAsync(predicate);
         }
         public async Task<IEnumerable<T>> GetTudoAsync(Expression<Func<T, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return await DbSet.Where(predicate).ToListAsync();
+                return await Query().Where(predicate).ToListAsync();
             }
-            return await DbSet.ToListAsync();
+            return await Query().ToListAsync();
         }
         public void Adicionar(T entity)
         {
@@ -62,6 +63,25 @@ namespace OnboardingSIGDB1.Data
         public int Contar()
         {
             return DbSet.Count();
+        }
+
+        public IQueryable<T> Query(bool eager = true)
+        {
+            var query = Contexto.Set<T>().AsQueryable();
+            if (eager)
+            {
+                var navigations = Contexto.Model.FindEntityType(typeof(T))
+                    .GetDerivedTypesInclusive()
+                    .SelectMany(type => type.GetNavigations())
+                    .Distinct();
+
+                foreach (var property in navigations)
+                {
+                    query = query.Include(property.Name);
+                }
+                    
+            }
+            return query;
         }
     }
 }

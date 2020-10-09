@@ -9,8 +9,13 @@ namespace OnboardingSIGDB1.Data
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FuncionarioCargo>().HasKey(x => new { x.CargoId, x.FuncionarioId });
+        }
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Cargo> Cargos { get; set; }
+        public DbSet<FuncionarioCargo> FuncionarioCargos { get; set; }
     }
 }

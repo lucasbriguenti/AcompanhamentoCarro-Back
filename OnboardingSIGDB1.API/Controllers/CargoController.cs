@@ -32,7 +32,7 @@ namespace OnboardingSIGDB1.API.Controllers
                 var cargo = _mapper.Map<Cargo>(dto);
                 _uow.CargoRepositorio.Adicionar(cargo);
                 await _uow.Commit();
-                return Ok();
+                return Ok(cargo);
             }
             else
             {
@@ -61,7 +61,7 @@ namespace OnboardingSIGDB1.API.Controllers
             cargo = _mapper.Map<Cargo>(dto);
             _uow.CargoRepositorio.Atualizar(cargo);
             await _uow.Commit();
-            return Ok();
+            return Ok(cargo);
         }
 
         [HttpDelete("{id}")]
@@ -73,7 +73,7 @@ namespace OnboardingSIGDB1.API.Controllers
 
             _uow.CargoRepositorio.Deletar(cargo);
             await _uow.Commit();
-            return Ok();
+            return Ok(cargo);
         }
     }
 }

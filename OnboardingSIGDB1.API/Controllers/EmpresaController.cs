@@ -43,11 +43,14 @@ namespace OnboardingSIGDB1.API.Controllers
         [HttpGet("pesquisar")]
         public async Task<IActionResult> GetAsync([FromQuery] EmpresaFiltro filtro)
         {
+            if (filtro.IsNull)
+                return await Get();
+
             return Ok(await _uow.EmpresaRepositorio.GetTudoAsync(x => 
-            (!string.IsNullOrEmpty(filtro.Nome) && x.Nome.Contains(filtro.Nome)) || 
-            (!string.IsNullOrEmpty(filtro.Cnpj) && x.Cnpj.Equals(filtro.Cnpj.LimpaMascaraCnpjCpf())) ||
-            (filtro.DataFimFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao <= filtro.DataFimFundacao) ||
-            (filtro.DataInicioFundacao.HasValue && x.DataFundacao.HasValue && x.DataFundacao >= filtro.DataInicioFundacao)));
+            (string.IsNullOrEmpty(filtro.Nome) || x.Nome.Contains(filtro.Nome)) &&
+            (string.IsNullOrEmpty(filtro.Cnpj) || x.Cnpj.Equals(filtro.Cnpj.LimpaMascaraCnpjCpf())) &&
+            (!filtro.DataFimFundacao.HasValue || x.DataFundacao.HasValue && x.DataFundacao <= filtro.DataFimFundacao) &&
+            (!filtro.DataInicioFundacao.HasValue || x.DataFundacao.HasValue && x.DataFundacao >= filtro.DataInicioFundacao)));
         }
         [HttpGet]
         public async Task<IActionResult> Get()

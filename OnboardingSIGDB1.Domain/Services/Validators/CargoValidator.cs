@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using OnboardingSIGDB1.Domain.Dto;
+using OnboardingSIGDB1.Domain.Models;
 
 namespace OnboardingSIGDB1.Domain.Services.Validators
 {
-    public class CargoValidator : AbstractValidator<CargoDto>
+    public class CargoValidator : AbstractValidator<Cargo>
     {
         public CargoValidator()
         {

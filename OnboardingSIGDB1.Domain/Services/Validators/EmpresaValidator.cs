@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
-using OnboardingSIGDB1.Domain.Dto;
+using OnboardingSIGDB1.Domain.Models;
 using System;
 
 namespace OnboardingSIGDB1.Domain.Services.Validators
 {
-    public class EmpresaValidator : AbstractValidator<EmpresaDto>
+    public class EmpresaValidator : AbstractValidator<Empresa>
     {
         public EmpresaValidator()
         {
