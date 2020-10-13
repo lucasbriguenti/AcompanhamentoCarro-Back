@@ -34,23 +34,8 @@ namespace OnboardingSIGDB1.API
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation()
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
-                
 
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<EmpresaDto, Empresa>()
-                .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
-
-                cfg.CreateMap<FuncionarioDto, Funcionario>()
-                .ForMember(x => x.DataContratacao, opt => opt.MapFrom(x => x.DataContratacao ?? null));
-
-                cfg.CreateMap<CargoDto, Cargo>();
-
-                cfg.CreateMap<VincularFuncionarioCargoDto, FuncionarioCargo>();
-            });
-
-            IMapper mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
+            MapeamentoGenerico(services);
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("OnboardingSIGDB1.API")));
 
@@ -84,6 +69,24 @@ namespace OnboardingSIGDB1.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIOnboarding V1");
             });
+        }
+        private void MapeamentoGenerico(IServiceCollection services)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<EmpresaDto, Empresa>()
+                .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
+
+                cfg.CreateMap<FuncionarioDto, Funcionario>()
+                .ForMember(x => x.DataContratacao, opt => opt.MapFrom(x => x.DataContratacao ?? null));
+
+                cfg.CreateMap<CargoDto, Cargo>();
+
+                cfg.CreateMap<VincularFuncionarioCargoDto, FuncionarioCargo>();
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
     }
 }

@@ -139,9 +139,9 @@ namespace OnboardingSIGDB1.API.Controllers
             {
                 _notification.AddNotification("Vinculação", "Erro na vinculação a empresa");
                 return NotFound();
-            }
-                
+            }  
         }
+
         [HttpPut("vincularcargo")]
         public async Task<IActionResult> VincularCargo([FromQuery] VincularFuncionarioCargoDto dto)
         {
