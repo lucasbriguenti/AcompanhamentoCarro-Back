@@ -7,3 +7,8 @@ C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\bin\Debug\netstandard2.0\Onboar
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\obj\Debug\netstandard2.0\OnboardingSIGDB1.Domain.dll
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\obj\Debug\netstandard2.0\OnboardingSIGDB1.Domain.pdb
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\obj\Debug\netstandard2.0\OnboardingSIGDB1.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.Domain\obj\Debug\netstandard2.0\OnboardingSIGDB1.Domain.csproj.CopyComplete

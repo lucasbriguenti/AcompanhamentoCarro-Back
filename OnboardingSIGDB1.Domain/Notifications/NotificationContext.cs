@@ -1,13 +1,11 @@
 ﻿using FluentValidation.Results;
-using OnboardingSIGDB1.Domain.Models;
-using System;
+using OnBoardingSIGDB1.Models.Classes;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace OnboardingSIGDB1.Domain.Notifications
 {
-	public class NotificationContext
+    public class NotificationContext
 	{
 		private readonly List<Notification> _notifications;
 		public IReadOnlyCollection<Notification> Notifications => _notifications;
@@ -32,7 +30,7 @@ namespace OnboardingSIGDB1.Domain.Notifications
 		{
 			_notifications.AddRange(notifications);
 		}
-		public void AddNotifications(Entity entity)
+		public void AddNotifications(EntityValidator entity)
         {
 			AddNotifications(entity.ValidationResult);
 		}

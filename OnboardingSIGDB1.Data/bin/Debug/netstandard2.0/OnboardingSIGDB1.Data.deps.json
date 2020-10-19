@@ -14,7 +14,7 @@
           "Microsoft.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0",
           "NETStandard.Library": "2.0.3",
-          "OnboardingSIGDB1.Domain": "1.0.0"
+          "OnBoardingSIGDB1.Models": "1.0.0"
         },
         "runtime": {
           "OnboardingSIGDB1.Data.dll": {}
@@ -29,17 +29,6 @@
           "lib/netstandard2.0/AutoMapper.dll": {
             "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.0.0"
-          }
-        }
-      },
-      "Extensions.FluentValidation.Br/1.0.1": {
-        "dependencies": {
-          "FluentValidation": "9.2.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/FluentValidation.Extensions.Br.dll": {
-            "assemblyVersion": "1.0.0.1",
-            "fileVersion": "1.0.0.1"
           }
         }
       },
@@ -2177,14 +2166,14 @@
           }
         }
       },
-      "OnboardingSIGDB1.Domain/1.0.0": {
+      "OnBoardingSIGDB1.Models/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.0.0",
-          "Extensions.FluentValidation.Br": "1.0.1",
+          "FluentValidation": "9.2.2",
           "FluentValidation.AspNetCore": "7.0.0"
         },
         "runtime": {
-          "OnboardingSIGDB1.Domain.dll": {}
+          "OnBoardingSIGDB1.Models.dll": {}
         }
       }
     }
@@ -2201,13 +2190,6 @@
       "sha512": "sha512-T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
       "path": "automapper/10.0.0",
       "hashPath": "automapper.10.0.0.nupkg.sha512"
-    },
-    "Extensions.FluentValidation.Br/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZwLlSdrk41U2L9uPj+E5kB4zyICfuXEoBq15OgVkAOwcfH0re763dhVZbCAxOFhPAnIwFDynrfBX0mwVrpRITw==",
-      "path": "extensions.fluentvalidation.br/1.0.1",
-      "hashPath": "extensions.fluentvalidation.br.1.0.1.nupkg.sha512"
     },
     "FluentValidation/9.2.2": {
       "type": "package",
@@ -3364,7 +3346,7 @@
       "path": "system.xml.xpath.xdocument/4.0.1",
       "hashPath": "system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
     },
-    "OnboardingSIGDB1.Domain/1.0.0": {
+    "OnBoardingSIGDB1.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

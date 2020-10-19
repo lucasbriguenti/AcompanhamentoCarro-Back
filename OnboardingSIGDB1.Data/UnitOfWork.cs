@@ -1,65 +1,28 @@
-﻿using OnboardingSIGDB1.Domain.Models;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.Data
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork<T> : IUnitOfWork<T>, IDisposable where T : class
     {
         private readonly DataContext _contexto;
-        private Repositorio<Empresa> _empresaRepositorio = null;
-        private Repositorio<Funcionario> _funcionarioRepositorio = null;
-        private Repositorio<Cargo> _cargoRepositorio = null;
-        private Repositorio<FuncionarioCargo> _funcionarioCargoRepositorio = null;
+        private Repositorio<T> _repositorio = null;
         public UnitOfWork(DataContext contexto)
         {
             _contexto = contexto;
         }
-        public IRepositorio<Empresa> EmpresaRepositorio
+        public IRepositorio<T> Repositorio
         {
             get
             {
-                if(_empresaRepositorio == null)
+                if(_repositorio == null)
                 {
-                    _empresaRepositorio = new Repositorio<Empresa>(_contexto);
+                    _repositorio = new Repositorio<T>(_contexto);
                 }
-                return _empresaRepositorio;
+                return _repositorio;
             }
         }
 
-        public IRepositorio<Funcionario> FuncionarioRepositorio
-        {
-            get
-            {
-                if(_funcionarioRepositorio == null)
-                {
-                    _funcionarioRepositorio = new Repositorio<Funcionario>(_contexto);
-                }
-                return _funcionarioRepositorio;
-            }
-        }
-        public IRepositorio<Cargo> CargoRepositorio
-        {
-            get
-            {
-                if(_cargoRepositorio == null)
-                {
-                    _cargoRepositorio = new Repositorio<Cargo>(_contexto);
-                }
-                return _cargoRepositorio;
-            }
-        }
-        public IRepositorio<FuncionarioCargo> FuncionarioCargoRepositorio
-        {
-            get
-            {
-                if(_funcionarioCargoRepositorio == null)
-                {
-                    _funcionarioCargoRepositorio = new Repositorio<FuncionarioCargo>(_contexto);
-                }
-                return _funcionarioCargoRepositorio;
-            }
-        }
         public async Task<int> Commit()
         {
             return await _contexto.SaveChangesAsync();

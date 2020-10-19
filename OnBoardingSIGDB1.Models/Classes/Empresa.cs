@@ -1,14 +1,12 @@
-﻿using OnboardingSIGDB1.Domain.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnboardingSIGDB1.Domain.Models
+namespace OnboardingSIGDB1.Models.Classes
 {
     public class Empresa : Entity
     {
-        public int Id { get; set; }
         [MaxLength(150)]
         public string Nome { get; set; }
         [NotMapped]
@@ -17,9 +15,13 @@ namespace OnboardingSIGDB1.Domain.Models
         public string Cnpj
         {
             get { return _cnpj; }
-            set { _cnpj = value.LimpaMascaraCnpjCpf(); }
+            set { _cnpj = LimpaMascaraCnpjCpf(value); }
         }
         public DateTime? DataFundacao { get; set; }
         public ICollection<Funcionario> Funcionarios { get; set; }
+        private string LimpaMascaraCnpjCpf(string cnpj)
+        {
+            return cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
+        }
     }
 }

@@ -1,14 +1,10 @@
-﻿using OnboardingSIGDB1.Domain.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.Data
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork<T> where T : class 
     {
-        IRepositorio<Funcionario> FuncionarioRepositorio { get; }
-        IRepositorio<Empresa> EmpresaRepositorio { get; }
-        IRepositorio<Cargo> CargoRepositorio { get; }
-        IRepositorio<FuncionarioCargo> FuncionarioCargoRepositorio { get; }
+        IRepositorio<T> Repositorio { get; }
         Task<int> Commit();
     }
 }

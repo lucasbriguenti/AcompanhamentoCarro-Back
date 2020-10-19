@@ -8,13 +8,17 @@
     <Folder Include="Atributos\" />
     <Folder Include="AutoMapper\" />
     <Folder Include="Base\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Extensions.FluentValidation.Br" Version="1.0.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnboardingSIGDB1.Data\OnboardingSIGDB1.Data.csproj" />
+    <ProjectReference Include="..\OnBoardingSIGDB1.Models\OnBoardingSIGDB1.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnboardingSIGDB1.Domain\OnboardingSIGDB1.Domain.csproj" />
+    <ProjectReference Include="..\OnBoardingSIGDB1.Models\OnBoardingSIGDB1.Models.csproj" />
   </ItemGroup>
 
 </Project>

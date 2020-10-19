@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
-using OnboardingSIGDB1.Domain.Models;
-using OnboardingSIGDB1.Domain.Notifications;
-using OnboardingSIGDB1.Domain.Services.Validators;
+using OnboardingSIGDB1.Domain.Interfaces;
 using OnboardingSIGDB1.Domain.Utils;
+using OnboardingSIGDB1.Models.Classes;
 using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.API.Controllers
@@ -14,35 +12,24 @@ namespace OnboardingSIGDB1.API.Controllers
     [ApiController]
     public class EmpresaController : ControllerBase
     {
+        private readonly IService<Empresa> _service;
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _uow;
-        private readonly EmpresaValidator validator;
-        private readonly NotificationContext _notification;
-        public EmpresaController(IMapper mapper, IUnitOfWork uow, NotificationContext notification)
+        public EmpresaController(IService<Empresa> service, IMapper mapper)
         {
+            _service = service;
             _mapper = mapper;
-            _uow = uow;
-            _notification = notification;
-            validator = new EmpresaValidator();
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] EmpresaDto dto)
         {
-
             var empresa = _mapper.Map<Empresa>(dto);
-            empresa.Validate(empresa, validator);
-            if(empresa.Invalid)
+            if(_service.Armazenar(empresa))
             {
-                _notification.AddNotifications(empresa.ValidationResult);
-                return NotFound();
-            }
-            else
-            {
-                _uow.EmpresaRepositorio.AdicionarAsync(empresa);
-                await _uow.Commit();
+                await _service.Commit();
                 return Ok(empresa);
             }
+            return NotFound();
         }
 
         [HttpGet("pesquisar")]
@@ -51,7 +38,7 @@ namespace OnboardingSIGDB1.API.Controllers
             if (filtro.IsNull)
                 return await Get();
 
-            return Ok(await _uow.EmpresaRepositorio.GetTudoAsync(x =>
+            return Ok(await _service.GetTudo(x =>
             (string.IsNullOrEmpty(filtro.Nome) || x.Nome.Contains(filtro.Nome)) &&
             (string.IsNullOrEmpty(filtro.Cnpj) || x.Cnpj.Equals(filtro.Cnpj.LimpaMascaraCnpjCpf())) &&
             (!filtro.DataFimFundacao.HasValue || x.DataFundacao.HasValue && x.DataFundacao <= filtro.DataFimFundacao) &&
@@ -60,49 +47,36 @@ namespace OnboardingSIGDB1.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _uow.EmpresaRepositorio.GetTudoAsync());
+            return Ok(await _service.GetTudo());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id));
+            return Ok(await _service.Get(x => x.Id == id));
         }
 
         [HttpPut]
         public async Task<IActionResult> Put(int id, [FromBody] EmpresaDto dto)
         {
-            var empresa = await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id);
-            if (empresa == null)
+            var empresa = _mapper.Map<Empresa>(dto);
+            if (_service.Armazenar(empresa, id))
             {
-                _notification.AddNotification("0", "Id inexistente");
-                return NotFound();
+                await _service.Commit();
+                return Ok(empresa);
             }
-            empresa = _mapper.Map<Empresa>(dto);
-            empresa.Validate(empresa, validator);
-            if(empresa.Invalid)
-            {
-                _notification.AddNotifications(empresa.ValidationResult);
-                return NotFound();
-            }
-            _uow.EmpresaRepositorio.Atualizar(empresa);
-            await _uow.Commit();
-            return Ok();
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var empresa = await _uow.EmpresaRepositorio.GetAsync(x => x.Id == id);
-            if (empresa == null)
+            if (_service.Excluir(id))
             {
-                _notification.AddNotification("0", "Id inexistente");
-                return NotFound();
+                await _service.Commit();
+                return Ok();
             }
-
-            _uow.EmpresaRepositorio.Deletar(empresa);
-            await _uow.Commit();
-            return Ok();
+            return NotFound();
         }
     }
 }

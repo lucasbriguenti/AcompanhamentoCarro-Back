@@ -19,7 +19,7 @@ namespace OnboardingSIGDB1.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.Cargo", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.Cargo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace OnboardingSIGDB1.API.Migrations
                     b.ToTable("Cargos");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.Empresa", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.Empresa", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace OnboardingSIGDB1.API.Migrations
                     b.ToTable("Empresas");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.Funcionario", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.Funcionario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace OnboardingSIGDB1.API.Migrations
                     b.ToTable("Funcionarios");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.FuncionarioCargo", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.FuncionarioCargo", b =>
                 {
                     b.Property<int>("CargoId");
 
@@ -91,21 +91,21 @@ namespace OnboardingSIGDB1.API.Migrations
                     b.ToTable("FuncionarioCargos");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.Funcionario", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.Funcionario", b =>
                 {
-                    b.HasOne("OnboardingSIGDB1.Domain.Models.Empresa", "Empresa")
+                    b.HasOne("OnboardingSIGDB1.Models.Classes.Empresa", "Empresa")
                         .WithMany("Funcionarios")
                         .HasForeignKey("EmpresaId");
                 });
 
-            modelBuilder.Entity("OnboardingSIGDB1.Domain.Models.FuncionarioCargo", b =>
+            modelBuilder.Entity("OnboardingSIGDB1.Models.Classes.FuncionarioCargo", b =>
                 {
-                    b.HasOne("OnboardingSIGDB1.Domain.Models.Cargo", "Cargo")
+                    b.HasOne("OnboardingSIGDB1.Models.Classes.Cargo", "Cargo")
                         .WithMany("FuncionarioCargos")
                         .HasForeignKey("CargoId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("OnboardingSIGDB1.Domain.Models.Funcionario", "Funcionario")
+                    b.HasOne("OnboardingSIGDB1.Models.Classes.Funcionario", "Funcionario")
                         .WithMany("FuncionarioCargos")
                         .HasForeignKey("FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade);

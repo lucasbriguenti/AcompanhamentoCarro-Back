@@ -1,11 +1,9 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
-using OnboardingSIGDB1.Domain.Models;
-using OnboardingSIGDB1.Domain.Notifications;
-using OnboardingSIGDB1.Domain.Services.Validators;
+using OnboardingSIGDB1.Domain.Interfaces;
+using OnboardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.API.Controllers
 {
@@ -13,82 +11,59 @@ namespace OnboardingSIGDB1.API.Controllers
     [ApiController]
     public class CargoController : ControllerBase
     {
+        private readonly IService<Cargo> _service;
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _uow;
-        private readonly CargoValidator validator;
-        private readonly NotificationContext _notification;
 
-        public CargoController(IMapper mapper, IUnitOfWork uow, NotificationContext notification)
+        public CargoController(IService<Cargo> service, IMapper mapper)
         {
+            _service = service;
             _mapper = mapper;
-            _uow = uow;
-            _notification = notification;
-            validator = new CargoValidator();
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CargoDto dto)
         {
             var cargo = _mapper.Map<Cargo>(dto);
-            cargo.Validate(cargo, validator);
-            if(cargo.Invalid)
+            if(_service.Armazenar(cargo))
             {
-                _notification.AddNotifications(cargo);
-                return NotFound();
+                await _service.Commit();
+                return Ok(cargo);
             }
-
-            _uow.CargoRepositorio.Adicionar(cargo);
-            await _uow.Commit();
-            return Ok(cargo);
-
+            return NotFound();
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _uow.CargoRepositorio.GetTudoAsync());
+            return Ok(await _service.GetTudo());
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _uow.CargoRepositorio.GetAsync(x => x.Id == id));
+            return Ok(await _service.Get(x => x.Id == id));
         }
 
         [HttpPut]
         public async Task<IActionResult> Put(int id, [FromBody] CargoDto dto)
         {
-            var cargo = await _uow.CargoRepositorio.GetAsync(x => x.Id == id);
-            if (cargo == null || id != dto.Id)
+            var cargo = _mapper.Map<Cargo>(dto);
+            if(_service.Armazenar(cargo, id))
             {
-                _notification.AddNotification("0", "Cargo não cadastrado");
-                return NotFound();
+                await _service.Commit();
+                return Ok(cargo);
             }
-            cargo = _mapper.Map<Cargo>(dto);
-            cargo.Validate(cargo, validator);
-            if (cargo.Invalid)
-            {
-                _notification.AddNotifications(cargo);
-                return NotFound();
-            }
-            
-            _uow.CargoRepositorio.Atualizar(cargo);
-            await _uow.Commit();
-            return Ok(cargo);
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var cargo = await _uow.CargoRepositorio.GetAsync(x => x.Id == id);
-            if (cargo == null)
+            if(_service.Excluir(id))
             {
-                _notification.AddNotification("0", "Cargo não encontrado");
-                return NotFound();
+                await _service.Commit();
+                return Ok();
             }
-                
-            _uow.CargoRepositorio.Deletar(cargo);
-            await _uow.Commit();
-            return Ok(cargo);
+            return NotFound();
         }
     }
 }

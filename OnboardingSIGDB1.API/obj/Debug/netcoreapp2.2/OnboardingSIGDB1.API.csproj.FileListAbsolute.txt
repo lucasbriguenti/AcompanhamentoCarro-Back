@@ -21,3 +21,7 @@ C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\Onboarding
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.pdb
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.genruntimeconfig.cache
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\obj\Debug\netcoreapp2.2\OnboardingSIGDB1.API.csproj.CoreCompileInputs.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnboardingSIGDB1.IoC.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnboardingSIGDB1.IoC.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnBoardingSIGDB1.Models.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.API\bin\Debug\netcoreapp2.2\OnBoardingSIGDB1.Models.pdb

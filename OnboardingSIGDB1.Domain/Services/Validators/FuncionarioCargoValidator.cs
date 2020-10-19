@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using OnboardingSIGDB1.Domain.Models;
+using OnboardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.Domain.Services.Validators
 {

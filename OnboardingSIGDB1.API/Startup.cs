@@ -1,5 +1,4 @@
-﻿using Swashbuckle.AspNetCore.Swagger;
-using AutoMapper;
+﻿using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,12 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnboardingSIGDB1.Data;
 using OnboardingSIGDB1.Domain.Dto;
-using OnboardingSIGDB1.Domain.Models;
 using Newtonsoft.Json;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Microsoft.OpenApi.Models;
-using OnboardingSIGDB1.Domain.Notifications;
 using OnboardingSIGDB1.API.Filter;
+using OnboardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.API
 {
@@ -35,12 +33,11 @@ namespace OnboardingSIGDB1.API
                 .AddFluentValidation()
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-            MapeamentoGenerico(services);
+            MapeamentoAutoMapper(services);
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("OnboardingSIGDB1.API")));
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<NotificationContext>();
+            IoC.Startup.MapeamentoGenerico(services);
 
             services.AddSwaggerGen(c =>
             {
@@ -70,7 +67,7 @@ namespace OnboardingSIGDB1.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIOnboarding V1");
             });
         }
-        private void MapeamentoGenerico(IServiceCollection services)
+        private void MapeamentoAutoMapper(IServiceCollection services)
         {
             var config = new MapperConfiguration(cfg =>
             {

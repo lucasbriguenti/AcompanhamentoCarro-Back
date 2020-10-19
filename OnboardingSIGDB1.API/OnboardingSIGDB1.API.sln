@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnboardingSIGDB1.API", "OnboardingSIGDB1.API.csproj", "{8CF3FCDA-4875-4E4C-B673-4AB7766D7D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnboardingSIGDB1.API", "OnboardingSIGDB1.API.csproj", "{8CF3FCDA-4875-4E4C-B673-4AB7766D7D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnboardingSIGDB1.Data", "..\OnboardingSIGDB1.Data\OnboardingSIGDB1.Data.csproj", "{7EED3570-D92D-4772-AB68-3F07D7E6A055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnboardingSIGDB1.Data", "..\OnboardingSIGDB1.Data\OnboardingSIGDB1.Data.csproj", "{7EED3570-D92D-4772-AB68-3F07D7E6A055}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnboardingSIGDB1.Domain", "..\OnboardingSIGDB1.Domain\OnboardingSIGDB1.Domain.csproj", "{B7411F09-8CBE-4195-835E-35031209A57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnboardingSIGDB1.Domain", "..\OnboardingSIGDB1.Domain\OnboardingSIGDB1.Domain.csproj", "{B7411F09-8CBE-4195-835E-35031209A57D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnboardingSIGDB1.IoC", "..\OnboardingSIGDB1.IoC\OnboardingSIGDB1.IoC.csproj", "{B8E4AB86-5E49-449D-94D6-826F7EB21714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnboardingSIGDB1.IoC", "..\OnboardingSIGDB1.IoC\OnboardingSIGDB1.IoC.csproj", "{B8E4AB86-5E49-449D-94D6-826F7EB21714}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBoardingSIGDB1.Models", "..\OnBoardingSIGDB1.Models\OnBoardingSIGDB1.Models.csproj", "{583A3EB4-8C99-405E-950E-017132076D02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B8E4AB86-5E49-449D-94D6-826F7EB21714}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E4AB86-5E49-449D-94D6-826F7EB21714}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E4AB86-5E49-449D-94D6-826F7EB21714}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583A3EB4-8C99-405E-950E-017132076D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583A3EB4-8C99-405E-950E-017132076D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583A3EB4-8C99-405E-950E-017132076D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583A3EB4-8C99-405E-950E-017132076D02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,3 +7,10 @@ C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\Onboardin
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.dll
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.pdb
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.csprojAssemblyReference.cache
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnboardingSIGDB1.Domain.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnboardingSIGDB1.Domain.pdb
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\obj\Debug\netstandard2.0\OnboardingSIGDB1.IoC.csproj.CopyComplete
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
+C:\Projetos\OnboardSenac\OnboardingSIGDB1.IoC\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb

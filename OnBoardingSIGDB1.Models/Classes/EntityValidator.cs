@@ -2,9 +2,9 @@
 using FluentValidation.Results;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnboardingSIGDB1.Domain.Models
+namespace OnBoardingSIGDB1.Models.Classes
 {
-    public abstract class Entity
+	public abstract class EntityValidator
 	{
 		[NotMapped]
 		public bool Valid { get; private set; }
@@ -13,7 +13,7 @@ namespace OnboardingSIGDB1.Domain.Models
 		[NotMapped]
 		public ValidationResult ValidationResult { get; private set; }
 
-		public bool Validate<TModel>(TModel model, AbstractValidator<TModel> validator)
+		public bool Validate<T>(T model, AbstractValidator<T> validator)
 		{
 			ValidationResult = validator.Validate(model);
 			return Valid = ValidationResult.IsValid;

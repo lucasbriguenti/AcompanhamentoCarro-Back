@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qUMZUeM+rJwgJqhbFP8qVmhnr5DUGNa/BjgCwFrmCxo4DtGNXK8gotuToqCUGAQAA4er1U4m/bsByO7XjcL4mg==",
+  "dgSpecHash": "vf7YfYbkGQ+VY0LaY/40jKxsFjfnWMeO/kdQBVIswryeCtHoTxG+7kfzxOL26f0ZuRw/d3gMIdPP2J+eTcu9yw==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
-    "C:\\Users\\lucas.briguenti\\.nuget\\packages\\extensions.fluentvalidation.br\\1.0.1\\extensions.fluentvalidation.br.1.0.1.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\fluentvalidation\\9.2.2\\fluentvalidation.9.2.2.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\fluentvalidation.aspnetcore\\7.0.0\\fluentvalidation.aspnetcore.7.0.0.nupkg.sha512",
     "C:\\Users\\lucas.briguenti\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\1.1.1\\microsoft.aspnetcore.antiforgery.1.1.1.nupkg.sha512",

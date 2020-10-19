@@ -40,7 +40,18 @@ namespace OnboardingSIGDB1.Data
             {
                 return await Query().Where(predicate).ToListAsync();
             }
-            return await Query().ToListAsync();
+            try
+            {
+                return await Query().ToListAsync();
+
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+            
+
         }
         public void Adicionar(T entity)
         {
@@ -67,7 +78,7 @@ namespace OnboardingSIGDB1.Data
 
         public IQueryable<T> Query(bool eager = true)
         {
-            var query = Contexto.Set<T>().AsQueryable();
+            var query = DbSet.AsQueryable();
             if (eager)
             {
                 var navigations = Contexto.Model.FindEntityType(typeof(T))
@@ -79,7 +90,7 @@ namespace OnboardingSIGDB1.Data
                 {
                     query = query.Include(property.Name);
                 }
-                    
+
             }
             return query;
         }

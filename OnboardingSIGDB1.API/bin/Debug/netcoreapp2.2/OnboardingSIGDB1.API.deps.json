@@ -36,6 +36,7 @@
           "Newtonsoft.Json": "12.0.3",
           "OnboardingSIGDB1.Data": "1.0.0",
           "OnboardingSIGDB1.Domain": "1.0.0",
+          "OnboardingSIGDB1.IoC": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3"
         },
         "runtime": {
@@ -352,7 +353,7 @@
           "FluentValidation": "9.2.2",
           "Microsoft.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0",
-          "OnboardingSIGDB1.Domain": "1.0.0"
+          "OnBoardingSIGDB1.Models": "1.0.0"
         },
         "runtime": {
           "OnboardingSIGDB1.Data.dll": {}
@@ -365,13 +366,41 @@
         "dependencies": {
           "AutoMapper": "10.0.0",
           "Extensions.FluentValidation.Br": "1.0.1",
-          "FluentValidation.AspNetCore": "9.2.0"
+          "FluentValidation.AspNetCore": "9.2.0",
+          "OnBoardingSIGDB1.Models": "1.0.0",
+          "OnboardingSIGDB1.Data": "1.0.0"
         },
         "runtime": {
           "OnboardingSIGDB1.Domain.dll": {}
         },
         "compile": {
           "OnboardingSIGDB1.Domain.dll": {}
+        }
+      },
+      "OnboardingSIGDB1.IoC/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
+          "OnboardingSIGDB1.Data": "1.0.0",
+          "OnboardingSIGDB1.Domain": "1.0.0"
+        },
+        "runtime": {
+          "OnboardingSIGDB1.IoC.dll": {}
+        },
+        "compile": {
+          "OnboardingSIGDB1.IoC.dll": {}
+        }
+      },
+      "OnBoardingSIGDB1.Models/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "10.0.0",
+          "FluentValidation": "9.2.2",
+          "FluentValidation.AspNetCore": "9.2.0"
+        },
+        "runtime": {
+          "OnBoardingSIGDB1.Models.dll": {}
+        },
+        "compile": {
+          "OnBoardingSIGDB1.Models.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3726,6 +3755,16 @@
       "sha512": ""
     },
     "OnboardingSIGDB1.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OnboardingSIGDB1.IoC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OnBoardingSIGDB1.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
