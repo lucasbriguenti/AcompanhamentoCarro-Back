@@ -13,8 +13,8 @@ namespace OnboardingSIGDB1.Models.Classes
         private string _cpf { get; set; }
         [MaxLength(11)]
         public string Cpf {
-            get { return _cpf; }
-            set { _cpf = LimpaMascaraCnpjCpf(value); }
+            get => _cpf;
+            set => _cpf = LimpaMascaraCnpjCpf(value);
         }
         public DateTime? DataContratacao { get; set; }
 

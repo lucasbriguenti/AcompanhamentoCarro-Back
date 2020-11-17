@@ -5,11 +5,13 @@ using OnboardingSIGDB1.Domain.Dto;
 using OnboardingSIGDB1.Domain.Utils;
 using OnboardingSIGDB1.Domain.Interfaces;
 using OnboardingSIGDB1.Models.Classes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnboardingSIGDB1.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class FuncionarioController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -25,7 +27,7 @@ namespace OnboardingSIGDB1.API.Controllers
         public async Task<IActionResult> Post([FromBody] FuncionarioDto dto)
         {
             var funcionario = _mapper.Map<Funcionario>(dto);
-            if(_service.Armazenar(funcionario))
+            if (_service.Armazenar(funcionario))
             {
                 await _service.Commit();
                 return Ok(funcionario);
@@ -59,7 +61,7 @@ namespace OnboardingSIGDB1.API.Controllers
             (!filtro.DataFimContratacao.HasValue || x.DataContratacao <= filtro.DataFimContratacao.Value)));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] FuncionarioDto dto)
         {
             var funcionario = _mapper.Map<Funcionario>(dto);
@@ -77,7 +79,7 @@ namespace OnboardingSIGDB1.API.Controllers
             if (_service.Excluir(id))
             {
                 await _service.Commit();
-                return Ok();
+                return Ok(await _service.Get(x => x.Id == id));
             }
             return NotFound();
         }
@@ -94,7 +96,7 @@ namespace OnboardingSIGDB1.API.Controllers
             if(_service.VincularEmpresa(idFuncionario, idEmpresa))
             {
                 await _service.Commit();
-                return Ok();
+                return Ok(_service.Get(x => x.Id == idFuncionario));
             }
             return NotFound();
         }
@@ -105,7 +107,7 @@ namespace OnboardingSIGDB1.API.Controllers
             if (_service.VincularCargo(dto))
             {
                 await _service.Commit();
-                return Ok();
+                return Ok(_service.Get(x => x.Id == dto.FuncionarioId));
             }
             return NotFound();
         }

@@ -14,14 +14,14 @@ namespace OnboardingSIGDB1.Models.Classes
         [MaxLength(14)]
         public string Cnpj
         {
-            get { return _cnpj; }
-            set { _cnpj = LimpaMascaraCnpjCpf(value); }
+            get => _cnpj; 
+            set => LimpaMascaraCnpjCpf(value);
         }
         public DateTime? DataFundacao { get; set; }
         public ICollection<Funcionario> Funcionarios { get; set; }
-        private string LimpaMascaraCnpjCpf(string cnpj)
+        private void LimpaMascaraCnpjCpf(string cnpj)
         {
-            return cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
+            _cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
         }
     }
 }

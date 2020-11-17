@@ -43,7 +43,7 @@ namespace OnboardingSIGDB1.API.Controllers
             return Ok(await _service.Get(x => x.Id == id));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] CargoDto dto)
         {
             var cargo = _mapper.Map<Cargo>(dto);

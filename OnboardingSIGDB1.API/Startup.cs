@@ -43,11 +43,34 @@ namespace OnboardingSIGDB1.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIOnboarding", Version = "v1" });
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.Use(async (context, next) =>
+            //{
+            //    await next.Invoke();
+            //    string method = context.Request.Method;
+
+            //    var allowedMethodsToCommit = new string[] {​​​​ "POST", "PUT", "DELETE" }​​​​;
+
+            //    if (allowedMethodsToCommit.Contains(method))
+            //    {​​​​
+            //        var unitOfWork = (IUnitOfWork)context.RequestServices.GetService(typeof(IUnitOfWork));
+            //        var contextoDeNotificacaoDeDominio = context.RequestServices.GetService(typeof(IDomainNotificationHandlerAsync<DomainNotification>));
+            //        var notificacaoDeDominio = (IDomainNotificationHandlerAsync<DomainNotification>)contextoDeNotificacaoDeDominio;
+
+            //        if (!notificacaoDeDominio.HasNotifications())
+            //            unitOfWork.Commit();
+
+            //    }​​​​
+            //});
+            
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -59,13 +82,15 @@ namespace OnboardingSIGDB1.API
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
-
+            
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIOnboarding V1");
             });
+
         }
         private void MapeamentoAutoMapper(IServiceCollection services)
         {

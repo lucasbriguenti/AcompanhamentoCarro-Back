@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20201015184424_restrictOnDelete.cs" />
     <Compile Remove="Migrations\20201015184424_restrictOnDelete.Designer.cs" />
+    <Compile Remove="Migrations\20201030143359_acertando.cs" />
+    <Compile Remove="Migrations\20201030143359_acertando.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
