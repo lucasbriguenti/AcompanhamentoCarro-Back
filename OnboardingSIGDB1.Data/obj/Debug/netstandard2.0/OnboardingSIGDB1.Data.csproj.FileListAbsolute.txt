@@ -10,3 +10,15 @@ C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\Onboardi
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.csproj.CoreCompileInputs.cache
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
 C:\Projetos\OnboardSenac\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.deps.json
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.dll
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnboardingSIGDB1.Data.pdb
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.csprojAssemblyReference.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.AssemblyInfoInputs.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.AssemblyInfo.cs
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.csproj.CoreCompileInputs.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.csproj.CopyComplete
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.dll
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnboardingSIGDB1.Data\obj\Debug\netstandard2.0\OnboardingSIGDB1.Data.pdb

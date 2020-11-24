@@ -5,8 +5,8 @@ using OnboardingSIGDB1.Domain.Interfaces;
 using OnboardingSIGDB1.Models.Classes;
 using OnboardingSIGDB1.Domain.Notifications;
 using OnboardingSIGDB1.Domain.Services;
-using OnboardingSIGDB1.Domain.Services.Funcionarios;
 using OnboardingSIGDB1.Domain.Services.Validators;
+using OnBoardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.IoC
 {
@@ -15,21 +15,19 @@ namespace OnboardingSIGDB1.IoC
         public static void MapeamentoGenerico(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork<Funcionario>, UnitOfWork<Funcionario>>();
-            services.AddScoped<IUnitOfWork<Cargo>, UnitOfWork<Cargo>>();
-            services.AddScoped<IUnitOfWork<Empresa>, UnitOfWork<Empresa>>();
-            services.AddScoped<IUnitOfWork<FuncionarioCargo>, UnitOfWork<FuncionarioCargo>>();
+            services.AddScoped<IUnitOfWork<Carro>, UnitOfWork<Carro>>();
+            services.AddScoped<IUnitOfWork<RegistroKilometragem>, UnitOfWork<RegistroKilometragem>>();
 
 
-            services.AddScoped<IService<Empresa>, Service<Empresa>>();
-            services.AddScoped<IService<Cargo>, Service<Cargo>>();
-            services.AddScoped<IFuncionarioService, FuncionarioService>();
+            services.AddScoped<IService<Carro>, Service<Carro>>();
+            services.AddScoped<IService<RegistroKilometragem>, Service<RegistroKilometragem>>();
+            services.AddScoped<IService<Funcionario>, Service<Funcionario>>();
 
             services.AddScoped<NotificationContext>();
 
-            services.AddScoped<AbstractValidator<Cargo>, CargoValidator>();
-            services.AddScoped<AbstractValidator<Empresa>, EmpresaValidator>();
+            services.AddScoped<AbstractValidator<Carro>, CarroValidator>();
+            services.AddScoped<AbstractValidator<RegistroKilometragem>, RegistroKilometragemValidator>();
             services.AddScoped<AbstractValidator<Funcionario>, FuncionarioValidator>();
-            services.AddScoped<AbstractValidator<FuncionarioCargo>, FuncionarioCargoValidator>();
 
         }
     }

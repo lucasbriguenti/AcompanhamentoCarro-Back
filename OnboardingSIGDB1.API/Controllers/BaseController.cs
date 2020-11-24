@@ -1,56 +1,53 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using OnboardingSIGDB1.Domain.Dto;
+﻿using Microsoft.AspNetCore.Mvc;
 using OnboardingSIGDB1.Domain.Interfaces;
 using OnboardingSIGDB1.Models.Classes;
+using System.Threading.Tasks;
 
 namespace OnboardingSIGDB1.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class CargoController : ControllerBase
+    public class BaseController<T> : ControllerBase where T : Entity
     {
-        private readonly IService<Cargo> _service;
-        private readonly IMapper _mapper;
+        protected readonly IService<T> _service;
 
-        public CargoController(IService<Cargo> service, IMapper mapper)
+        public BaseController(IService<T> service)
         {
             _service = service;
-            _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CargoDto dto)
+        public async Task<IActionResult> Post([FromBody] T entity)
         {
-            var cargo = _mapper.Map<Cargo>(dto);
-            if(_service.Armazenar(cargo))
+            if (_service.Armazenar(entity))
             {
                 await _service.Commit();
-                return Ok(cargo);
+                return Ok(entity);
             }
             return NotFound();
         }
 
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _service.GetTudo());
+            var lista = await _service.GetTudo();
+            return Ok(lista);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
             return Ok(await _service.Get(x => x.Id == id));
         }
 
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] CargoDto dto)
+        public async Task<IActionResult> Put(int id, [FromBody] T entity)
         {
-            var cargo = _mapper.Map<Cargo>(dto);
-            if(_service.Armazenar(cargo, id))
+            if (_service.Armazenar(entity, id))
             {
                 await _service.Commit();
-                return Ok(cargo);
+                return Ok(entity);
             }
             return NotFound();
         }
@@ -58,10 +55,10 @@ namespace OnboardingSIGDB1.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if(_service.Excluir(id))
+            if (_service.Excluir(id))
             {
                 await _service.Commit();
-                return Ok();
+                return Ok(await _service.Get(x => x.Id == id));
             }
             return NotFound();
         }

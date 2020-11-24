@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FluentValidation.AspNetCore;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,12 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnboardingSIGDB1.Data;
-using OnboardingSIGDB1.Domain.Dto;
 using Newtonsoft.Json;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Microsoft.OpenApi.Models;
 using OnboardingSIGDB1.API.Filter;
-using OnboardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.API
 {
@@ -33,15 +30,18 @@ namespace OnboardingSIGDB1.API
                 .AddFluentValidation()
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-            MapeamentoAutoMapper(services);
+            //MapeamentoAutoMapper(services);
 
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("OnboardingSIGDB1.API")));
+            services.AddDbContext<DataContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("OnboardingSIGDB1.API"));
+                //options.UseLazyLoadingProxies();
+            });
 
             IoC.Startup.MapeamentoGenerico(services);
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIOnboarding", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Registrador de Kilometragem", Version = "v1" });
             });
 
             services.AddCors();
@@ -88,27 +88,27 @@ namespace OnboardingSIGDB1.API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIOnboarding V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Registrador de Kilometragem V1");
             });
 
         }
-        private void MapeamentoAutoMapper(IServiceCollection services)
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<EmpresaDto, Empresa>()
-                .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
+        //private void MapeamentoAutoMapper(IServiceCollection services)
+        //{
+        //    var config = new MapperConfiguration(cfg =>
+        //    {
+        //        cfg.CreateMap<EmpresaDto, Empresa>()
+        //        .ForMember(x => x.DataFundacao, opt => opt.MapFrom(x => x.DataFundacao ?? null));
 
-                cfg.CreateMap<FuncionarioDto, Funcionario>()
-                .ForMember(x => x.DataContratacao, opt => opt.MapFrom(x => x.DataContratacao ?? null));
+        //        cfg.CreateMap<FuncionarioDto, Funcionario>()
+        //        .ForMember(x => x.DataContratacao, opt => opt.MapFrom(x => x.DataContratacao ?? null));
 
-                cfg.CreateMap<CargoDto, Cargo>();
+        //        cfg.CreateMap<CargoDto, Cargo>();
 
-                cfg.CreateMap<VincularFuncionarioCargoDto, FuncionarioCargo>();
-            });
+        //        cfg.CreateMap<VincularFuncionarioCargoDto, FuncionarioCargo>();
+        //    });
 
-            var mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
-        }
+        //    var mapper = config.CreateMapper();
+        //    services.AddSingleton(mapper);
+        //}
     }
 }

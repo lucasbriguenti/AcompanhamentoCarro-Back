@@ -50,7 +50,7 @@ namespace OnboardingSIGDB1.Data
 
                 throw new Exception(e.Message);
             }
-            
+
 
         }
         public void Adicionar(T entity)

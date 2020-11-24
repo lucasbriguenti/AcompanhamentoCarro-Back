@@ -7,3 +7,12 @@ C:\Projetos\OnboardSenac\OnBoardingSIGDB1.Models\bin\Debug\netstandard2.0\OnBoar
 C:\Projetos\OnboardSenac\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
 C:\Projetos\OnboardSenac\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
 C:\Projetos\OnboardSenac\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.csprojAssemblyReference.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.deps.json
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\bin\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.AssemblyInfoInputs.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.AssemblyInfo.cs
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.csproj.CoreCompileInputs.cache
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.dll
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.pdb
+C:\Users\lucas.briguenti\Desktop\AcompanhamentoCarro\OnboardingSIGDB1\OnBoardingSIGDB1.Models\obj\Debug\netstandard2.0\OnBoardingSIGDB1.Models.csprojAssemblyReference.cache

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj": {}
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj": {
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj",
+        "projectUniqueName": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj",
         "projectName": "OnboardingSIGDB1.API",
-        "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj",
+        "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.API\\OnboardingSIGDB1.API.csproj",
         "packagesPath": "C:\\Users\\lucas.briguenti\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.API\\obj\\",
+        "outputPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,15 +30,16 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
               },
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj"
               },
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj"
               }
             }
           }
@@ -51,6 +52,7 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -112,18 +114,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj",
+        "projectUniqueName": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj",
         "projectName": "OnboardingSIGDB1.Data",
-        "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj",
+        "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj",
         "packagesPath": "C:\\Users\\lucas.briguenti\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\obj\\",
+        "outputPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -142,9 +144,10 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj"
               }
             }
           }
@@ -157,6 +160,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -191,18 +195,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj",
         "projectName": "OnboardingSIGDB1.Domain",
-        "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj",
+        "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj",
         "packagesPath": "C:\\Users\\lucas.briguenti\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\obj\\",
+        "outputPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -221,12 +225,13 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
               },
-              "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj"
               }
             }
           }
@@ -239,6 +244,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -269,18 +275,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj": {
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj",
+        "projectUniqueName": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj",
         "projectName": "OnboardingSIGDB1.IoC",
-        "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj",
+        "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\OnboardingSIGDB1.IoC.csproj",
         "packagesPath": "C:\\Users\\lucas.briguenti\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.IoC\\obj\\",
+        "outputPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.IoC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -299,12 +305,13 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Data\\OnboardingSIGDB1.Data.csproj"
               },
-              "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
-                "projectPath": "C:\\Projetos\\OnboardSenac\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj"
+              "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj": {
+                "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnboardingSIGDB1.Domain\\OnboardingSIGDB1.Domain.csproj"
               }
             }
           }
@@ -317,6 +324,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
@@ -339,18 +347,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
+    "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj",
+        "projectUniqueName": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj",
         "projectName": "OnBoardingSIGDB1.Models",
-        "projectPath": "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj",
+        "projectPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\OnBoardingSIGDB1.Models.csproj",
         "packagesPath": "C:\\Users\\lucas.briguenti\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\OnboardSenac\\OnBoardingSIGDB1.Models\\obj\\",
+        "outputPath": "C:\\Users\\lucas.briguenti\\Desktop\\AcompanhamentoCarro\\OnboardingSIGDB1\\OnBoardingSIGDB1.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -369,6 +377,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -380,6 +389,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -410,7 +420,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

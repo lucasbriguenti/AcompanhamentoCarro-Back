@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnboardingSIGDB1.Models.Classes;
+using OnBoardingSIGDB1.Models.Classes;
 
 namespace OnboardingSIGDB1.Data
 {
@@ -11,11 +12,11 @@ namespace OnboardingSIGDB1.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FuncionarioCargo>().HasKey(x => new { x.CargoId, x.FuncionarioId });
+
         }
-        public DbSet<Empresa> Empresas { get; set; }
+
+        public DbSet<Carro> Empresas { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<Cargo> Cargos { get; set; }
-        public DbSet<FuncionarioCargo> FuncionarioCargos { get; set; }
+        public DbSet<RegistroKilometragem> RegistroKilometragens { get; set; }
     }
 }
